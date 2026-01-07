@@ -9,7 +9,7 @@
     Cart cart = (Cart) session.getAttribute("cart");
     Collection<CartItem> items = (cart != null) ? cart.getItems() : null;
 
-    // ✅ FIX 1: Calculate total BEFORE rendering UI (clean logic)
+    
     double total = 0;
     if (items != null) {
         for (CartItem item : items) {
@@ -17,7 +17,7 @@
         }
     }
 
-    // ✅ Security check
+    //  Security check
     if (user == null) {
         response.sendRedirect("login.jsp");
         return;
@@ -35,7 +35,7 @@
 
 <body>
 
-	<!-- ✅ FIX 2: Unified header structure (same as other pages) -->
+	
 	<header class="header white-bg">
 		<div class="header-container">
 			<div class="logo gradient-text">FoodSwift</div>
@@ -54,12 +54,12 @@
 
 		<form action="placeOrder" method="post">
 
-			<!-- ✅ FIX 3: safety hidden field -->
+			
 			<input type="hidden" name="checkout" value="true">
 
 			<div class="checkout-grid">
 
-				<!-- LEFT: FORMS -->
+				
 				<div class="checkout-forms">
 
 					<div class="card">
@@ -103,7 +103,7 @@
 
 				</div>
 
-				<!-- RIGHT: ORDER SUMMARY -->
+				
 				<div class="order-summary">
 					<div class="card">
 						<h3>Order Summary</h3>
@@ -122,7 +122,7 @@
 							<strong>Total</strong> <strong class="total-amount">₹ <%= total %></strong>
 						</div>
 
-						<!-- ✅ FIX 4: spacing-safe CTA -->
+						
 						<button type="submit" class="btn">Place Order</button>
 					</div>
 				</div>

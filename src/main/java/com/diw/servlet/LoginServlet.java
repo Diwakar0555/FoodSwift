@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
 		String loginId = request.getParameter("loginId");
 		String password = request.getParameter("password");
 
-		// 🔑 NEW: read redirect info
+		
 		String redirect = request.getParameter("redirect");
 		String restaurantId = request.getParameter("restaurantId");
 
@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("loggedUser", user);
 
-			// 🔑 NEW: decide where to go after login
+			//  decide where to go after login
 			if ("menu".equals(redirect) && restaurantId != null) {
 				response.sendRedirect("menu?restaurantId=" + restaurantId);
 			} else {

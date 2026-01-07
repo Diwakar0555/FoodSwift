@@ -30,7 +30,7 @@
 
 			<form action="login" method="post">
 
-				<!-- ✅ FIX 1: prevent "null" values -->
+				
 				<input type="hidden" name="redirect"
 					value="<%= request.getParameter("redirect") != null ? request.getParameter("redirect") : "" %>">
 

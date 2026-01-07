@@ -23,7 +23,6 @@ public class MenuServlet extends HttpServlet {
 
 		int restaurantId = Integer.parseInt(request.getParameter("restaurantId"));
 
-		// ✅ ADD THIS (ONLY IMPORTANT CHANGE)
 		HttpSession session = request.getSession();
 		session.setAttribute("currentRestaurantId", restaurantId);
 

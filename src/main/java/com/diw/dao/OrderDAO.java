@@ -19,6 +19,5 @@ public interface OrderDAO {
 
 	boolean deleteOrder(int orderId);
 
-	// ✅ NEW METHOD (for checkout – transaction + batch)
 	int placeOrder(Order order, List<CartItem> cartItems);
 }

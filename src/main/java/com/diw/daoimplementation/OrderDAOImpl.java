@@ -27,7 +27,7 @@ public class OrderDAOImpl implements OrderDAO {
 
 	private static final String DELETE_ORDER = "DELETE FROM orders WHERE order_id=?";
 
-	// ---------------- EXISTING METHOD (UNCHANGED) ----------------
+	
 	@Override
 	public int addOrder(Order order) {
 
@@ -56,7 +56,7 @@ public class OrderDAOImpl implements OrderDAO {
 		return orderId;
 	}
 
-	// ---------------- NEW METHOD (CHECKOUT) ----------------
+	
 	@Override
 	public int placeOrder(Order order, List<CartItem> cartItems) {
 
@@ -83,7 +83,7 @@ public class OrderDAOImpl implements OrderDAO {
 				orderId = rs.getInt(1);
 			}
 
-			// 2️⃣ Insert order items (BATCH)
+			
 			String itemSql = "INSERT INTO order_items (order_id, menu_id, quantity, item_total) VALUES (?, ?, ?, ?)";
 
 			PreparedStatement psItem = con.prepareStatement(itemSql);
@@ -98,13 +98,13 @@ public class OrderDAOImpl implements OrderDAO {
 
 			psItem.executeBatch();
 
-			con.commit(); // ✅ commit everything
+			con.commit(); 
 			return orderId;
 
 		} catch (Exception e) {
 			try {
 				if (con != null)
-					con.rollback(); // ❌ rollback everything
+					con.rollback(); 
 			} catch (SQLException ex) {
 				ex.printStackTrace();
 			}
@@ -114,7 +114,7 @@ public class OrderDAOImpl implements OrderDAO {
 		return 0;
 	}
 
-	// ---------------- EXISTING METHODS (UNCHANGED) ----------------
+	
 	@Override
 	public Order getOrderById(int orderId) {
 		Order order = null;

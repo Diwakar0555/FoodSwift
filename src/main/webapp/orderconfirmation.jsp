@@ -2,7 +2,7 @@
 <%@ page import="com.diw.model.User"%>
 
 <%
-// Get logged-in user and last order id from session
+
 User user = (User) session.getAttribute("loggedUser");
 Integer orderId = (Integer) session.getAttribute("lastOrderId");
 
@@ -12,7 +12,7 @@ if (user == null || orderId == null) {
 	return;
 }
 
-// OPTIONAL: remove orderId after displaying (prevents refresh reuse)
+//  remove orderId after displaying (prevents refresh reuse)
 session.removeAttribute("lastOrderId");
 %>
 

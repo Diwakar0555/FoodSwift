@@ -9,7 +9,7 @@ User user = (User) session.getAttribute("loggedUser");
 Cart cart = (Cart) session.getAttribute("cart");
 Collection<CartItem> items = (cart != null) ? cart.getItems() : null;
 
-// ⚠️ Restaurant ID used only to go back to SAME restaurant menu
+//  Restaurant ID used only to go back to SAME restaurant menu
 Integer restId = (Integer) session.getAttribute("currentRestaurantId");
 
 double total = 0;
